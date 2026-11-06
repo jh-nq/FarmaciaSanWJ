@@ -44,6 +44,21 @@ cerrar. La aplicacion es de consola, monousuario y sin base de datos ni
 persistencia de datos en archivos. El metodo estaPorCaducar se conserva en
 Lote; no hay un reporte especifico por caducar en el menu.
 
+CAMBIOS EN EL DISENO
 
-Referencia para crear y ejecutar un proyecto Java con Ant en NetBeans:
-https://netbeans.apache.org/tutorial/main/kb/docs/java/javase-intro/
+Producto ahora es una clase concreta. Medicamento hereda de ella y configura
+si necesita receta. Se conservan encapsulamiento, herencia y polimorfismo.
+Los datos de la receta se integran en DetalleVenta y quedan vinculados al
+producto de esa linea. Las asignaciones se representan mediante pares
+inmutables de lote y cantidad de la biblioteca estandar de Java
+(SimpleImmutableEntry): getKey devuelve el lote y getValue la cantidad.
+Las colecciones del sistema siguen siendo ArrayList.
+
+VERIFICACION
+
+Las 8 fuentes compilaron con compatibilidad Java 8 sobre JDK 17, sin
+advertencias. Se aprobaron 79 comprobaciones de negocio y el recorrido de
+consola de 122 entradas produjo la misma salida que la version anterior,
+salvo el instante de confirmacion. Se comprobaron las fuentes por consola;
+la interfaz de NetBeans no se ejecuto en este entorno.
+
