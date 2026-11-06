@@ -19,48 +19,6 @@ COMO EJECUTAR
 9. Ejecuta con F6 o clic derecho en el proyecto > Run o Ejecutar.
 10. Utiliza la ventana Salida u Output para escribir las opciones del menu.
 
-NetBeans genera la configuracion de Ant al crear el proyecto. Este paquete
-contiene unicamente la carpeta src y este README. Las fuentes son compatibles
-con Java 8 o posterior; se compilaron y ejecutaron con JDK 17.
-
-Si utilizas un proyecto existente, sustituye su carpeta de fuentes por la src
-completa de esta version y selecciona inicio.Main como clase principal. Los
-nombres y las firmas de algunas clases cambiaron respecto de las versiones
-anteriores, por lo que debes usar el conjunto completo.
-
-LAS 8 CLASES
-
-1. inicio.Main
-   Reune el inicio, los tres menus, la lectura y la presentacion de consola.
-2. servicios.Farmacia
-   Coordina productos, lotes, clientes y ventas. Guarda los ArrayList en memoria
-   y aplica las reglas sin leer ni imprimir datos de consola.
-3. dominio.Producto
-   Representa los productos de cuidado personal y contiene los datos comunes.
-4. dominio.Medicamento
-   Hereda de Producto. El atributo conReceta distingue los medicamentos de
-   venta libre y los que requieren receta. Sobrescribe requiereReceta y
-   obtenerTipo; se mantienen las tres opciones del menu de productos.
-5. dominio.Lote
-   Representa la cantidad disponible y la fecha de caducidad de cada lote.
-6. dominio.Cliente
-   Mantiene la identificacion y el nombre del cliente.
-7. dominio.Venta
-   Representa el borrador, el resumen o el comprobante. Cada resumen y cada
-   comprobante se construye como una instancia protegida frente a ediciones.
-8. dominio.DetalleVenta
-   Guarda cada producto vendido, su cantidad y precio historico, los datos de
-   su receta y las cantidades asignadas por lote.
-
-CAMBIOS EN EL DISENO
-
-Producto ahora es una clase concreta. Medicamento hereda de ella y configura
-si necesita receta. Se conservan encapsulamiento, herencia y polimorfismo.
-Los datos de la receta se integran en DetalleVenta y quedan vinculados al
-producto de esa linea. Las asignaciones se representan mediante pares
-inmutables de lote y cantidad de la biblioteca estandar de Java
-(SimpleImmutableEntry): getKey devuelve el lote y getValue la cantidad.
-Las colecciones del sistema siguen siendo ArrayList.
 
 FUNCIONES Y USO
 
@@ -86,13 +44,6 @@ cerrar. La aplicacion es de consola, monousuario y sin base de datos ni
 persistencia de datos en archivos. El metodo estaPorCaducar se conserva en
 Lote; no hay un reporte especifico por caducar en el menu.
 
-VERIFICACION
-
-Las 8 fuentes compilaron con compatibilidad Java 8 sobre JDK 17, sin
-advertencias. Se aprobaron 79 comprobaciones de negocio y el recorrido de
-consola de 122 entradas produjo la misma salida que la version anterior,
-salvo el instante de confirmacion. Se comprobaron las fuentes por consola;
-la interfaz de NetBeans no se ejecuto en este entorno.
 
 Referencia para crear y ejecutar un proyecto Java con Ant en NetBeans:
 https://netbeans.apache.org/tutorial/main/kb/docs/java/javase-intro/
